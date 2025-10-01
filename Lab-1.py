@@ -16,27 +16,27 @@ print(f"{gato1}, {gato2}")
 #B. Métodos que necesita la clase Gato:
 #¿Cómo diseñarías un método que permita que los gatos jueguen y cómo impactaría esto 
 #en sus atributos como los niveles de energía y hambre?
-    def juego(self, pelota=20, rascadores=10): #Se establecen valores 
-        self.energia -= pelota
-        self.hambre += rascadores
+     def juego(self, pelota=20, rascadores=10): #Se establecen valores 
+           self.energia -= pelota
+           self.hambre += rascadores
     
 #¿Cómo diseñarías un método que permita alimentar a los gatos y restaurar sus niveles de energía y hambre. 
 #C. Método Mágico: 
-    def comida(self, galletas=20, pescado=80):
-        self.hambre -= galletas
-        self.energia += galletas // 2
-        self.hambre -= pescado
-        self.energia += pescado // 2
+        def comida(self, galletas=20, pescado=80):
+            self.hambre -= galletas
+            self.energia += galletas // 2
+            self.hambre -= pescado
+            self.energia += pescado // 2
 
 #Implementa un método que te permita imprimir de forma clara el estado del gato.
 # ¿Qué información incluirías en la representación del gato?
-    def __str__(self):
-        return f"Gato(nombre={self.nombre}, hambre={self.hambre}, energia={self.energia})"
+        def __str__(self):
+            return f"Gato(nombre={self.nombre}, hambre={self.hambre}, energia={self.energia})"
 #2. Espacios en el Café (30 Puntos) 
 
 #A. ¿Cómo representarías los espacios dentro del café?
-class Cafe: 
-    def __init__(self, salon=10, terraza=20):
+        class Cafe: 
+             def __init__(self, salon=10, terraza=20):
         
         
 #¿Qué atributos serían importantes para describir un espacio del café? Piensa en atributos 
