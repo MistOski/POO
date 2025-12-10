@@ -1,24 +1,41 @@
-class Trabajador():
+class Trabajador:
     def __init__(self, nombre):
         self.nombre = nombre
+
     def tarea(self):
         print("Labores generales")
-    
-class Chef(Trabajador): #Se hereda la clase de trabajador
-    def __init__(self, especialidad, nombre):
-        Trabajador().__init__(especialidad, nombre)    
-        self.especialidad = "Cocinero"
-        self.nombre = "Tomas"
 
-class Mesero(Trabajador): #Se hereda la clase de trabajador
-    def __init__(self, especialidad, nombre, seccion):
-        Trabajador().__init__(especialidad, nombre)
-        self.nombre = "Elliot"
-        self.seccion = "Comedor" 
-        self.especialidad = "Mesero"
-    
-class AyudanteChefMesero(Chef, Mesero): #Hereda el rol de chef y mesero
-    def __init__(self, especialidad, nombre):
-        Chef().__init__(especialidad, nombre)
-        Mesero().__init__(especialidad, nombre)
+class Chef(Trabajador):
+    def __init__(self, nombre, especialidad, **kwargs):
+        super().__init__(nombre, **kwargs)
+        self.especialidad = especialidad
 
+    def tarea(self):
+        print(f"{self.nombre} prepara comida")
+
+
+class Mesero(Trabajador):
+    def __init__(self, nombre, seccion, **kwargs):
+        super().__init__(nombre, **kwargs)
+        self.seccion = seccion
+
+    def tarea(self):
+        print(f"{self.nombre} atiende mesas en {self.seccion}")
+
+
+class AyudanteChefMesero(Chef, Mesero):
+    def __init__(self, nombre, especialidad, seccion):
+        super().__init__(nombre, especialidad=especialidad, seccion=seccion)
+
+c = Chef("Tomas", "Cocina italiana")
+m = Mesero("Elliot", "Comedor")
+a = AyudanteChefMesero("Lucas", "Parrillas", "Terraza")
+
+print(c.nombre, c.especialidad)
+c.tarea()
+
+print(m.nombre, m.seccion)
+m.tarea()
+
+print(a.nombre, a.especialidad, a.seccion)
+a.tarea()
