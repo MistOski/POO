@@ -29,3 +29,10 @@ class Fraccion:
         return {self.numerador, self.denominador} == {fraccion.numerador, fraccion.denominador}
 
 Fracciones = Fraccion #Se crea objeto
+
+a = Fraccion(1, 2)
+b = Fraccion(2, 4)
+
+print(a + b)     # 8/8
+print(a * b)     # 2/8
+print(a == b)    # True
